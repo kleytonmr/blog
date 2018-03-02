@@ -20,6 +20,11 @@ class UsersController < ApplicationController
   # É necessario fazer para evitar redundância e para da permissões.
   # No Rails 4, começou a ser implementado o Strong parameters, onde são especificados
   # os parâmetros requeridos e permitidos, evitando a atribuição em massa.
+
+  def show
+    @user = User.find(params[:id])
+  end
+  
   private
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
