@@ -6,7 +6,7 @@ class User < ApplicationRecord
     with_options presence: true do
       validates :name, length: { maximum: 50 }
       validates :sex, presence: true 
-      validates :password, length: { minimum: 6 }
+      validates :password, length: { minimum: 8 }
       validates :email,
         length: { maximum: 260 },
         format: { with: VALID_EMAIL_FORMAT},
