@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
-  # Nesse momento, o Rails cria a rota (route) e a view para a ação new, requisitada durante a
-  # criação do controller, também conhecida como sign up.
+
   def new
     @user = User.new
   end
@@ -9,24 +8,33 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       redirect_to @user, notice: "Usuário foi criado com sucesso!"
-      #tire o método de comentário quando criar o helper.
-      #Usuário depois de cadastrar-se acessa o sistema automaticamente
-      #sign_in(@user)
     else
       render action: :new
     end
   end
 
-  # É necessario fazer para evitar redundância e para da permissões.
-  # No Rails 4, começou a ser implementado o Strong parameters, onde são especificados
-  # os parâmetros requeridos e permitidos, evitando a atribuição em massa.
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+    @user = User.find(params[:id])
+    @user.update(user_params)
+    redirect_to @user
+  end
 
   def show
-    @user = User.find(params[:id])
+     @user = User.find(params[:id])
+  end
+
+  def destroy
+    @user = User.find(params[:id]) 
+    @user.destroy
+    redirect_to root_path
   end
   
   private
   def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :sex)
   end
 end
