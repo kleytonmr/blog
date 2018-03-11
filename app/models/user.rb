@@ -4,13 +4,11 @@ class User < ApplicationRecord
     VALID_EMAIL_FORMAT = /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
 
     with_options presence: true do
-      validates :name, length: { maximum: 50 }
-      validates :sex, presence: true 
+      validates :name 
+      validates :gender
       validates :password, length: { minimum: 8 }
-      validates :email,
-        length: { maximum: 260 },
-        format: { with: VALID_EMAIL_FORMAT},
-        uniqueness: { case_sensitive: false }
+      validates :email, format: { with: VALID_EMAIL_FORMAT},
+                 uniqueness: { case_sensitive: false }
     end
 
     before_save { email_downcase }

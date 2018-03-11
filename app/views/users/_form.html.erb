@@ -21,8 +21,8 @@
           <%= f.email_field :email %>
       </div>
       <div class="field">
-          <%= f.label :sex %>
-          <%= f.select :sex, options_for_select([['Select options'],['Man'], ['Woman']]) %>
+          <%= f.label :Gender %>
+          <%= f.select :gender,[['Man', 1], ['Woman', 0]], include_blank: 'Select options' %>
       </div>
       <div class="field">
           <%= f.label :password %>
