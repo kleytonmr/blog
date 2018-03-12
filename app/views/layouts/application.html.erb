@@ -9,6 +9,11 @@
   </head>
   <body>
     <%= render 'layouts/header' %>
+    <% if  logged_in? %>
+      <%= puts "Loguei" %>
+    <% else %>
+      <%= puts "não loguei" %>
+    <%end%>   
     <%= yield %>
   </body>
 </html>
