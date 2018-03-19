@@ -5,7 +5,11 @@ class UsersController < ApplicationController
   end
 
   def index
+    
+  end
 
+  def post
+    
   end
 
   def create
