@@ -14,7 +14,7 @@ gem 'rails', '~> 5.1.5'
 # gem 'sqlite3'
 
 # postgreSQL 
-gem 'pg', '~> 0.18'
+gem 'pg'
 
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
